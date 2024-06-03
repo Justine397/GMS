@@ -44,6 +44,17 @@ include 'population.php';
                         <button type="submit" class="logoutBTN" name="logout">Logout</button>
                     </form> 
                     <header>
+                        <div class="imgContainer">
+                        <?php
+                        $imgPath = isset($_SESSION['imgPath']) ? $_SESSION['imgPath'] : '';
+                        ?>
+                        <img src="<?php echo !empty($imgPath) ? '../assets/images/upload/' . htmlspecialchars($imgPath) : '../assets/images/default.jpg'; ?>" alt="user_image" class="mainIMG" id="userImage">
+                        <div class="overlay" id="adminOverlay">Change Photo</div>
+                            <form id="uploadForm" enctype="multipart/form-data">
+                                <input type="hidden" name="userId" value="<?php echo isset($_SESSION['idNo']) ? htmlspecialchars($_SESSION['idNo']) : ''; ?>">
+                                <input type="file" class="hidden-input" id="file-input" name="profile_pic" accept="image/*">
+                            </form>
+                        </div>
                         <div class="infoContainer">
                             <div class="nameContainer">
                             <div class="info">Name:</div>
