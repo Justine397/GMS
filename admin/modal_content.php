@@ -4,7 +4,7 @@ session_start();
 include '../login/login.php';
 
 $userData = [];
-
+$imgPath = "../assets/images/default.jpg";
 
 if (isset($_GET['userId'])) {
     $userId = $_GET['userId'];
@@ -128,7 +128,9 @@ if (isset($_GET['userId'])) {
 <body>
     <div class='mainContainer'>
         <header>
-            
+            <div class='imgContainer'>
+                <img src='<?php echo $imgPath; ?>' alt='student_image' class='mainIMG'>
+            </div>
             <div class='infoContainer'>
                 <div class='nameContainer'>
                     <div class='info'>Name:</div>
