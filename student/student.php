@@ -21,7 +21,10 @@
                     </form> 
                     <header>
                         <div class="imgContainer">
-
+                            <?php
+                            $imgPath = isset($_SESSION['imgPath']) ? $_SESSION['imgPath'] : '';
+                            ?>
+                            <img src="<?php echo !empty($imgPath) ? '../assets/images/upload/' . htmlspecialchars($imgPath) : '../assets/images/default.jpg'; ?>" alt="user_image" class="mainIMG" id="userImage">
                             <div class="overlay" id="studentOverlay">Change Photo</div>
                                 <form id="uploadForm" enctype="multipart/form-data">
                                     <input type="hidden" name="userId" value="<?php echo isset($_SESSION['idNo']) ? htmlspecialchars($_SESSION['idNo']) : ''; ?>">
